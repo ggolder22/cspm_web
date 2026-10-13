@@ -4,9 +4,8 @@ Sitio institucional de CSPM, organizado según la nueva estructura de la empresa
 
 ```
 Inicio
-├── Ingeniería Solar ── Bombeo solar · Instalación y mantenimiento · Sistemas solares
-├── Energía Circular ── Paneles recuperados · Iluminación · Baterías
-├── Heliara One ─────── Producto y funcionamiento · Estado de desarrollo · Consultas
+├── Energía Solar Fotovoltaica ── Paneles recuperados · Iluminación · Baterías
+├── Energía Solar Térmica ────── Heliara One · Estado de desarrollo
 └── Nosotros · Blog · Contacto y registro comercial
 ```
 
@@ -53,7 +52,7 @@ api/contact.js                 función de Vercel que envía el formulario por e
 
 ### Cómo se arma una página
 
-`src/_data/pages/bombeo-solar.js` define `meta`, `hero`, `sections` y `cta` para cada idioma. Cada sección tiene un `type`, que es el nombre de un archivo en `_includes/sections/`:
+`src/_data/pages/termica.js` define `meta`, `hero`, `sections` y `cta` para cada idioma. Cada sección tiene un `type`, que es el nombre de un archivo en `_includes/sections/`:
 
 | type       | Uso                                         |
 |------------|---------------------------------------------|
@@ -67,7 +66,7 @@ api/contact.js                 función de Vercel que envía el formulario por e
 
 Todas las secciones aceptan `id`, `theme` (`light` · `sand` · `dark` · `forest` · `moss`), `tag`, `title`, `intro` y `align: 'center'`. El encabezado de cada archivo de sección documenta sus campos.
 
-**Links:** en los datos se usa la *clave* de la página, no la URL: `link: 'bombeo-solar'`, `link: 'energia-circular#proceso'` o `link: 'contacto?unidad=heliara-one'`. El filtro `link` resuelve la URL según el idioma. Si la clave no existe, el build falla y lo avisa.
+**Links:** en los datos se usa la *clave* de la página, no la URL: `link: 'termica'`, `link: 'fotovoltaica#proceso'` o `link: 'contacto?unidad=termica'`. El filtro `link` resuelve la URL según el idioma. Si la clave no existe, el build falla y lo avisa.
 
 ## Tareas frecuentes
 
@@ -100,7 +99,7 @@ Variables de entorno (Settings → Environment Variables):
 
 ## Pendientes
 
-- [ ] Revisar los textos marcados como **Borrador**: Ingeniería Solar, Bombeo, Mantenimiento, Sistemas solares y Heliara One. Los textos entre `[corchetes]` necesitan datos reales.
+- [ ] Revisar los textos marcados como **Borrador**: Energía Solar Térmica (Heliara One). Los textos entre `[corchetes]` necesitan datos reales.
 - [ ] Sumar fotos reales de proyectos (`src/img/`).
 - [ ] Configurar Resend y sus variables de entorno.
-- [ ] Al pasar al dominio propio: configurar `SITE_ENV=production`, migrar el CMS (`/admin`) y redirigir las anclas viejas (`/#proceso` → `/energia-circular/#proceso`).
+- [ ] Al pasar al dominio propio: configurar `SITE_ENV=production`, migrar el CMS (`/admin`) y redirigir las anclas viejas (`/#proceso` → `/fotovoltaica/#proceso`).

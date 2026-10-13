@@ -1,25 +1,26 @@
 /**
  * ============================================================================
- * PÁGINA: ENERGÍA CIRCULAR  →  /energia-circular/  ·  /en/circular-energy/
+ * PÁGINA: ENERGÍA SOLAR FOTOVOLTAICA  →  /fotovoltaica/  ·  /en/photovoltaic/
  * ----------------------------------------------------------------------------
- * Contenido migrado de la landing anterior (cspm.com.ar): modelo de dos
- * flujos, líneas de recuperación, proceso de 9 etapas, categorías A/B/C,
- * impacto y minería. Las anclas #paneles #iluminacion #baterias las usa el menú.
+ * Unidad de negocio 1. Recuperación y certificación de paneles, iluminación
+ * y baterías (contenido migrado de la landing anterior): modelo de dos flujos,
+ * líneas de recuperación, proceso de 9 etapas, categorías A/B/C, impacto y
+ * minería. Las anclas #paneles #iluminacion #baterias las usa el menú.
  * ============================================================================
  */
 module.exports = {
   es: {
     meta: {
-      title: 'Energía Circular — Segunda vida para paneles, baterías e iluminación',
+      title: 'Energía Solar Fotovoltaica — Segunda vida para paneles, iluminación y baterías',
       description: 'CSPM diagnostica, clasifica y certifica paneles solares, baterías y luminarias usadas con trazabilidad completa. Retiro RAEE y equipos recuperados certificados.',
     },
     hero: {
-      badge: 'Economía circular · Segunda vida',
+      badge: 'Energía Solar Fotovoltaica · Segunda vida',
       title: 'Damos <em>segunda vida</em> a la tecnología solar',
       text: 'Diagnosticamos, clasificamos y certificamos paneles solares, luminarias y baterías usadas con estándares técnicos rigurosos — transformando residuos en activos de valor real.',
       actions: [
         { label: 'Conocer el proceso', link: '#proceso', icon: 'arrow-right' },
-        { label: 'Consultar soluciones', link: 'contacto?unidad=energia-circular', variant: 'secondary' },
+        { label: 'Consultar soluciones', link: 'contacto?unidad=fotovoltaica', variant: 'secondary' },
       ],
       stats: [
         { value: '94%', label: 'Tasa de recuperación' },
@@ -158,7 +159,7 @@ module.exports = {
           'Las operaciones mineras dependen de energía en sitios remotos, y esa energía representa una porción significativa de su <strong>Scope 2</strong>. Los paneles certificados de segunda vida ofrecen una vía concreta y documentada para reducir esa huella — a menor CapEx que los paneles nuevos.',
           'No es material "usado sin garantía": es tecnología clasificada bajo estándares rigurosos, con documentación válida para reportes ESG, auditorías de sustentabilidad e informes de carbono.',
         ],
-        link: { label: 'Consulta técnica para tu proyecto minero', link: 'contacto?unidad=energia-circular' },
+        link: { label: 'Consulta técnica para tu proyecto minero', link: 'contacto?unidad=fotovoltaica' },
         items: [
           { icon: '📉', title: 'Reducción de Scope 2 documentada', text: 'Cada panel certificado tiene ficha técnica con generación esperada: toneladas de CO₂eq evitadas, con números reales.' },
           { icon: '💰', title: 'Menor CapEx en renovables', text: 'Paneles A y B funcionan a plena capacidad o con degradación controlada, liberando presupuesto sin sacrificar performance.' },
@@ -170,22 +171,22 @@ module.exports = {
       title: 'El futuro de la energía solar es <em>circular</em>',
       text: '¿Tenés equipos fotovoltaicos que ya no usás? ¿Querés saber el valor real de un lote de paneles, baterías o luminarias? Contactanos.',
       primary: 'Consultar soluciones',
-      unit: 'energia-circular',
+      unit: 'fotovoltaica',
     },
   },
 
   en: {
     meta: {
-      title: 'Circular Energy — Second life for panels, batteries and lighting',
+      title: 'Solar Photovoltaic — Second life for panels, lighting and batteries',
       description: 'CSPM diagnoses, classifies and certifies used solar panels, batteries and lighting with full traceability. E-waste collection and certified recovered equipment.',
     },
     hero: {
-      badge: 'Circular economy · Second life',
+      badge: 'Solar Photovoltaic · Second life',
       title: 'We give <em>second life</em> to solar technology',
       text: 'We diagnose, classify and certify used solar panels, lighting and batteries to rigorous technical standards — turning waste into assets of real value.',
       actions: [
         { label: 'See the process', link: '#proceso', icon: 'arrow-right' },
-        { label: 'Ask about solutions', link: 'contacto?unidad=energia-circular', variant: 'secondary' },
+        { label: 'Ask about solutions', link: 'contacto?unidad=fotovoltaica', variant: 'secondary' },
       ],
       stats: [
         { value: '94%', label: 'Recovery rate' },
@@ -324,7 +325,7 @@ module.exports = {
           'Mining operations depend on energy at remote sites, and that energy is a significant share of their <strong>Scope 2</strong> emissions. Certified second-life panels offer a concrete, documented way to reduce that footprint — at lower CapEx than new panels.',
           'This is not “used material without warranty”: it is technology classified under rigorous standards, with documentation valid for ESG reports, sustainability audits and carbon reporting.',
         ],
-        link: { label: 'Technical consultation for your mining project', link: 'contacto?unidad=energia-circular' },
+        link: { label: 'Technical consultation for your mining project', link: 'contacto?unidad=fotovoltaica' },
         items: [
           { icon: '📉', title: 'Documented Scope 2 reduction', text: 'Every certified panel has a data sheet with expected generation: tonnes of CO₂eq avoided, with real numbers.' },
           { icon: '💰', title: 'Lower renewable CapEx', text: 'Category A and B panels run at full or controlled-degradation capacity, freeing budget without sacrificing performance.' },
@@ -336,7 +337,7 @@ module.exports = {
       title: 'The future of solar energy is <em>circular</em>',
       text: 'Do you have photovoltaic equipment you no longer use? Want to know the real value of a batch of panels, batteries or lighting? Get in touch.',
       primary: 'Ask about solutions',
-      unit: 'energia-circular',
+      unit: 'fotovoltaica',
     },
   },
 };

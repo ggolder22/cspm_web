@@ -3,7 +3,7 @@
  * LISTA DE PÁGINAS A GENERAR  →  `pageList` (la usa src/pages.njk)
  * ----------------------------------------------------------------------------
  * Recorre src/_data/pages/*.js y crea una entrada por cada idioma definido:
- *     { key: 'bombeo-solar', locale: 'en', url: '/en/solar-engineering/solar-pumping/' }
+ *     { key: 'termica', locale: 'en', url: '/en/solar-thermal/' }
  *
  * No hace falta editar este archivo: alcanza con crear el archivo de contenido
  * y su ruta en routes.js. Si falta la ruta, el build falla con un mensaje claro.

@@ -16,18 +16,13 @@ module.exports = {
     /* Nombres de páginas y secciones (menú, breadcrumbs, footer) */
     labels: {
       'home': 'Inicio',
-      'ingenieria-solar': 'Ingeniería Solar',
-      'bombeo-solar': 'Bombeo solar',
-      'mantenimiento': 'Instalación y mantenimiento',
-      'sistemas-solares': 'Sistemas solares',
-      'energia-circular': 'Energía Circular',
+      'fotovoltaica': 'Energía Solar Fotovoltaica',
       'paneles': 'Paneles recuperados',
       'iluminacion': 'Iluminación',
       'baterias': 'Baterías',
+      'termica': 'Energía Solar Térmica',
       'heliara-one': 'Heliara One',
-      'heliara-producto': 'Producto y funcionamiento',
       'heliara-estado': 'Estado de desarrollo',
-      'heliara-consultas': 'Consultas',
       'nosotros': 'Nosotros',
       'contacto': 'Contacto',
       'blog': 'Blog',
@@ -54,7 +49,7 @@ module.exports = {
     },
 
     footer: {
-      tagline: 'Ingeniería solar, energía circular y desarrollo de producto.',
+      tagline: 'Energía solar fotovoltaica y térmica, con criterio de economía circular.',
       units: 'Unidades',
       company: 'Empresa',
       contact: 'Contacto',
@@ -74,11 +69,8 @@ module.exports = {
       messagePlaceholder: 'Contanos brevemente tu proyecto, ubicación y plazos.',
       optional: 'opcional',
       units: {
-        'bombeo-solar': 'Bombeo solar',
-        'mantenimiento': 'Instalación y mantenimiento',
-        'sistemas-solares': 'Sistemas solares',
-        'energia-circular': 'Energía Circular (paneles, baterías, iluminación)',
-        'heliara-one': 'Heliara One',
+        'fotovoltaica': 'Fotovoltaica (paneles, iluminación, baterías)',
+        'termica': 'Térmica (Heliara One)',
         'otro': 'Otro / no estoy seguro',
       },
       profiles: {
@@ -121,18 +113,13 @@ module.exports = {
 
     labels: {
       'home': 'Home',
-      'ingenieria-solar': 'Solar Engineering',
-      'bombeo-solar': 'Solar pumping',
-      'mantenimiento': 'Installation & maintenance',
-      'sistemas-solares': 'Solar systems',
-      'energia-circular': 'Circular Energy',
+      'fotovoltaica': 'Solar Photovoltaic',
       'paneles': 'Recovered panels',
       'iluminacion': 'Lighting',
       'baterias': 'Batteries',
+      'termica': 'Solar Thermal',
       'heliara-one': 'Heliara One',
-      'heliara-producto': 'Product & operation',
       'heliara-estado': 'Development status',
-      'heliara-consultas': 'Enquiries',
       'nosotros': 'About us',
       'contacto': 'Contact',
       'blog': 'Blog',
@@ -158,7 +145,7 @@ module.exports = {
     },
 
     footer: {
-      tagline: 'Solar engineering, circular energy and product development.',
+      tagline: 'Solar photovoltaic and thermal energy, built on circular economy principles.',
       units: 'Business units',
       company: 'Company',
       contact: 'Contact',
@@ -178,11 +165,8 @@ module.exports = {
       messagePlaceholder: 'Briefly describe your project, location and timeline.',
       optional: 'optional',
       units: {
-        'bombeo-solar': 'Solar pumping',
-        'mantenimiento': 'Installation & maintenance',
-        'sistemas-solares': 'Solar systems',
-        'energia-circular': 'Circular Energy (panels, batteries, lighting)',
-        'heliara-one': 'Heliara One',
+        'fotovoltaica': 'Photovoltaic (panels, lighting, batteries)',
+        'termica': 'Thermal (Heliara One)',
         'otro': 'Other / not sure',
       },
       profiles: {

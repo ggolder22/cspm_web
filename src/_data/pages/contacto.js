@@ -10,7 +10,7 @@ module.exports = {
   es: {
     meta: {
       title: 'Contacto y registro comercial',
-      description: 'Consultá por proyectos de ingeniería solar, energía circular o Heliara One. Formulario, email y WhatsApp.',
+      description: 'Consultá por energía solar fotovoltaica (paneles, iluminación, baterías) o térmica (Heliara One). Formulario, email y WhatsApp.',
     },
     hero: {
       badge: 'Contacto',
@@ -24,7 +24,7 @@ module.exports = {
   en: {
     meta: {
       title: 'Contact & business registration',
-      description: 'Ask about solar engineering projects, circular energy or Heliara One. Form, email and WhatsApp.',
+      description: 'Ask about solar photovoltaic (panels, lighting, batteries) or solar thermal (Heliara One). Form, email and WhatsApp.',
     },
     hero: {
       badge: 'Contact',

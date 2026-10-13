@@ -2,7 +2,7 @@
  * ============================================================================
  * MENÚ PRINCIPAL  →  disponible en plantillas como `navigation`
  * ----------------------------------------------------------------------------
- * Refleja la estructura de la empresa (Inicio → 3 unidades → Contacto).
+ * Refleja la estructura de la empresa: Inicio → 2 unidades de negocio.
  * El header y el footer se generan a partir de esta lista.
  *
  *   link   clave de ruta (ver routes.js); acepta #ancla
@@ -15,27 +15,18 @@
 module.exports = {
   main: [
     {
-      link: 'ingenieria-solar',
+      link: 'fotovoltaica',
       children: [
-        { link: 'bombeo-solar' },
-        { link: 'mantenimiento' },
-        { link: 'sistemas-solares' },
+        { link: 'fotovoltaica#paneles', label: 'paneles' },
+        { link: 'fotovoltaica#iluminacion', label: 'iluminacion' },
+        { link: 'fotovoltaica#baterias', label: 'baterias' },
       ],
     },
     {
-      link: 'energia-circular',
+      link: 'termica',
       children: [
-        { link: 'energia-circular#paneles', label: 'paneles' },
-        { link: 'energia-circular#iluminacion', label: 'iluminacion' },
-        { link: 'energia-circular#baterias', label: 'baterias' },
-      ],
-    },
-    {
-      link: 'heliara-one',
-      children: [
-        { link: 'heliara-one#producto', label: 'heliara-producto' },
-        { link: 'heliara-one#estado', label: 'heliara-estado' },
-        { link: 'heliara-one#consultas', label: 'heliara-consultas' },
+        { link: 'termica#heliara-one', label: 'heliara-one' },
+        { link: 'termica#estado', label: 'heliara-estado' },
       ],
     },
     { link: 'nosotros' },
@@ -44,7 +35,7 @@ module.exports = {
 
   /* Columnas del footer */
   footer: [
-    { title: 'units',   items: ['ingenieria-solar', 'energia-circular', 'heliara-one'] },
+    { title: 'units',   items: ['fotovoltaica', 'termica'] },
     { title: 'company', items: ['nosotros', 'blog', 'contacto'] },
   ],
 };

@@ -15,7 +15,7 @@ module.exports = {
     hero: {
       badge: 'Empresa',
       title: 'Un equipo comprometido con el <em>ciclo solar</em> completo',
-      text: 'Somos ingenieros, técnicos y especialistas en economía circular. Diseñamos e instalamos sistemas solares, recuperamos los que llegan al final de su primera vida y desarrollamos producto propio.',
+      text: 'Somos ingenieros, técnicos y especialistas en economía circular. Recuperamos y certificamos equipos fotovoltaicos para darles una segunda vida y desarrollamos soluciones solares térmicas propias.',
     },
     sections: [
       {
@@ -25,7 +25,7 @@ module.exports = {
         title: 'Nacimos de una <em>pregunta</em> que nadie respondía',
         paragraphs: [
           '¿Qué le pasa a un panel solar cuando deja de ser "útil"? Paneles que todavía generan energía terminan en basurales. Baterías con capacidad residual se descartan. Luminarias que aún funcionan se abandonan.',
-          'Para responderla desarrollamos un sistema de gestión riguroso, estandarizado y trazable. Hoy esa misma forma de trabajar guía nuestras tres unidades: Ingeniería Solar, Energía Circular y Heliara One.',
+          'Para responderla desarrollamos un sistema de gestión riguroso, estandarizado y trazable. Hoy esa misma forma de trabajar guía nuestras dos unidades de negocio: Energía Solar Fotovoltaica y Energía Solar Térmica.',
         ],
         items: [
           { label: '🌿 Misión', title: 'Energía solar que dure más y rinda mejor', text: 'Diseñar, mantener y recuperar sistemas solares con diagnóstico objetivo y trazabilidad completa, maximizando su valor técnico, económico y ambiental.' },
@@ -45,7 +45,7 @@ module.exports = {
           { icon: '📐', date: 'Desarrollo · 2021 – 2022', title: 'Construyendo la metodología', text: 'Investigación técnica, revisión de normativa internacional (IEC 61215, IEC 61730) y pruebas de campo. Se definen los protocolos de diagnóstico, la clasificación A/B/C y la trazabilidad digital.' },
           { icon: '⚡', date: 'Primeras operaciones · 2023', title: 'El sistema en acción', text: 'Los primeros lotes se procesan bajo el protocolo CSPM: más del 90% del material resulta recuperable.' },
           { icon: '📄', date: 'Registro oficial · 2024', title: 'Propiedad intelectual protegida', text: 'La metodología CSPM se registra ante la Dirección Nacional del Derecho de Autor (DNDA) de la República Argentina.' },
-          { icon: '🌱', date: 'Hoy · 2026', title: 'Tres unidades de negocio', text: 'CSPM se organiza en Ingeniería Solar, Energía Circular y Heliara One, con el Manual Técnico CSPM v1.0 como base común.' },
+          { icon: '🌱', date: 'Hoy · 2026', title: 'Dos unidades de negocio', text: 'CSPM se organiza en Energía Solar Fotovoltaica y Energía Solar Térmica (Heliara One), con el Manual Técnico CSPM v1.0 como base común.' },
         ],
       },
     ],
@@ -60,7 +60,7 @@ module.exports = {
     hero: {
       badge: 'Company',
       title: 'A team committed to the full <em>solar cycle</em>',
-      text: 'We are engineers, technicians and circular economy specialists. We design and install solar systems, recover those reaching the end of their first life, and develop our own products.',
+      text: 'We are engineers, technicians and circular economy specialists. We recover and certify photovoltaic equipment for a second life and develop our own solar thermal solutions.',
     },
     sections: [
       {
@@ -70,7 +70,7 @@ module.exports = {
         title: 'Born from a <em>question</em> no one was answering',
         paragraphs: [
           'What happens to a solar panel when it is no longer “useful”? Panels that still generate energy end up in landfills. Batteries with residual capacity are discarded. Lighting that still works is abandoned.',
-          'To answer it we developed a rigorous, standardised and traceable management system. Today that same way of working guides our three units: Solar Engineering, Circular Energy and Heliara One.',
+          'To answer it we developed a rigorous, standardised and traceable management system. Today that same way of working guides our two business units: Solar Photovoltaic and Solar Thermal.',
         ],
         items: [
           { label: '🌿 Mission', title: 'Solar energy that lasts longer and performs better', text: 'Design, maintain and recover solar systems with objective diagnosis and full traceability, maximising their technical, economic and environmental value.' },
@@ -90,7 +90,7 @@ module.exports = {
           { icon: '📐', date: 'Development · 2021 – 2022', title: 'Building the methodology', text: 'Technical research, review of international standards (IEC 61215, IEC 61730) and field testing. Diagnostic protocols, A/B/C classification and digital traceability are defined.' },
           { icon: '⚡', date: 'First operations · 2023', title: 'The system in action', text: 'The first batches are processed under the CSPM protocol: over 90% of the material proves recoverable.' },
           { icon: '📄', date: 'Official registration · 2024', title: 'Intellectual property protected', text: 'The CSPM methodology is registered with Argentina’s National Copyright Directorate (DNDA).' },
-          { icon: '🌱', date: 'Today · 2026', title: 'Three business units', text: 'CSPM is organised into Solar Engineering, Circular Energy and Heliara One, with the CSPM Technical Manual v1.0 as a common foundation.' },
+          { icon: '🌱', date: 'Today · 2026', title: 'Two business units', text: 'CSPM is organised into Solar Photovoltaic and Solar Thermal (Heliara One), with the CSPM Technical Manual v1.0 as a common foundation.' },
         ],
       },
     ],
