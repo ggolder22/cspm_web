@@ -1,0 +1,19 @@
+{#-
+  SECCIÓN: PREGUNTAS FRECUENTES (acordeón nativo <details>, sin JS)
+  {
+    type: 'faq',
+    id, theme, tag, title, intro, align,
+    items: [{ q, a }]
+  }
+-#}
+{% import "components/ui.njk" as ui %}
+{% call ui.section(section, 'faq') %}
+<div class="faq">
+  {% for item in section.items %}
+  <details class="faq__item reveal" style="--i: {{ loop.index0 }}">
+    <summary>{{ item.q }}</summary>
+    <p>{{ item.a | safe }}</p>
+  </details>
+  {% endfor %}
+</div>
+{% endcall %}

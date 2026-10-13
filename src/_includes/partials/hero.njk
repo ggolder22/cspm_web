@@ -1,0 +1,49 @@
+{#-
+  HERO (encabezado principal de cada página)
+  Datos: pageContent.hero = {
+    size:    'full' (inicio) | omitido (páginas internas, con breadcrumbs)
+    badge, title, text,
+    actions: [{ label, link, variant: 'primary'|'secondary', icon }],
+    stats:   [{ value, unit, label }],
+    visual:  { nodes: [{ icon, label }] }   ← órbita animada (opcional)
+  }
+-#}
+{% import "components/ui.njk" as ui %}
+{%- set hero = pageContent.hero -%}
+<section class="hero{% if hero.size == 'full' %} hero--full{% endif %}">
+  <div class="container hero__inner{% if hero.visual %} hero__inner--split{% endif %}">
+
+    <div class="hero__text">
+      {% if hero.size != 'full' %}{% include "partials/breadcrumbs.njk" %}{% endif %}
+      {% if hero.badge %}<p class="hero__badge"><span class="hero__dot" aria-hidden="true"></span>{{ hero.badge }}</p>{% endif %}
+      <h1 class="hero__title">{{ hero.title | safe }}</h1>
+      {% if hero.text %}<p class="hero__lead">{{ hero.text | safe }}</p>{% endif %}
+
+      {% if hero.actions %}
+      <div class="hero__actions">
+        {% for action in hero.actions %}
+          {{ ui.button(action.label, action.link | link(locale), action.variant or 'primary', action.icon) }}
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if hero.stats %}{{ ui.stats(hero.stats, 'inline') }}{% endif %}
+    </div>
+
+    {% if hero.visual %}
+    <div class="hero__visual" aria-hidden="true">
+      <div class="orbit">
+        <div class="orbit__ring"></div>
+        <div class="orbit__ring orbit__ring--inner"></div>
+        <div class="orbit__center">{% include "partials/logo.njk" %}</div>
+        {% for node in hero.visual.nodes %}
+        <div class="orbit__node" style="--i: {{ loop.index0 }}; --n: {{ hero.visual.nodes.length }}">
+          <span>{{ node.icon }}</span><small>{{ node.label }}</small>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>

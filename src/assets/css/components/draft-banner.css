@@ -1,0 +1,9 @@
+/* ============================================================================
+   AVISO DE BORRADOR (páginas con draft: true)
+   ========================================================================== */
+.draft-banner {
+  position: fixed; bottom: 1rem; left: 50%; z-index: 150; transform: translateX(-50%);
+  max-width: calc(100% - 2rem); padding: .55rem 1.2rem; border-radius: var(--radius-pill);
+  background: #F4D35E; color: #3A2E00; box-shadow: var(--shadow-sm);
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; text-align: center;
+}

@@ -1,0 +1,10 @@
+{#- Migas de pan: Inicio / Ingeniería Solar / Bombeo solar (usa `breadcrumbs`) -#}
+{% if breadcrumbs.length > 1 %}
+<nav class="breadcrumbs" aria-label="{{ t.nav.breadcrumb }}">
+  <ol>
+    {% for key in breadcrumbs %}
+    <li>{% if loop.last %}<span aria-current="page">{{ t.labels[key] }}</span>{% else %}<a href="{{ key | link(locale) }}">{{ t.labels[key] }}</a>{% endif %}</li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

@@ -1,0 +1,43 @@
+/* ============================================================================
+   TOKENS DE DISEÑO
+   Todos los valores de marca en un solo lugar. El resto del CSS usa estas
+   variables: para cambiar un color o una fuente en todo el sitio, editar acá.
+   ========================================================================== */
+:root {
+  /* Paleta de marca */
+  --c-salvia: #7A9171;
+  --c-oliva:  #4A6741;
+  --c-bosque: #2D4A27;
+  --c-beige:  #E8E4D0;
+  --c-arena:  #C4B99A;
+  --c-blanco: #F7F5EE;
+  --c-oscuro: #1A2718;
+  --c-noche:  #111A10;
+  --c-text:   #2D3A2B;
+  --c-muted:  #6B7A69;
+  --c-mint:   #B5D4A8;
+  --c-whatsapp: #25D366;
+
+  /* Tipografías */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', ui-monospace, monospace;
+
+  /* Espaciados y medidas */
+  --container: 1160px;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --section-y: clamp(4.5rem, 9vw, 7rem);
+  --header-h: 72px;
+
+  /* Formas */
+  --radius-sm: 12px;
+  --radius:    20px;
+  --radius-lg: 24px;
+  --radius-pill: 100px;
+
+  /* Sombras y movimiento */
+  --shadow-sm: 0 4px 20px rgba(45, 74, 39, .12);
+  --shadow:    0 16px 40px rgba(45, 74, 39, .14);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --stagger: 80ms;
+}

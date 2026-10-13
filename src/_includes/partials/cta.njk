@@ -1,0 +1,22 @@
+{#-
+  BANDA DE CONTACTO FINAL
+  Usa los textos por defecto de t.cta. Cada página puede sobrescribir
+  cualquier campo con  cta: { title, text, primary, unit, whatsappMessage }.
+    unit → preselecciona la unidad en el formulario (contacto?unidad=…)
+  Para ocultarla en una página:  cta: false
+-#}
+{% import "components/ui.njk" as ui %}
+{%- set cta = pageContent.cta or {} -%}
+{%- set formLink = ('contacto?unidad=' + cta.unit) if cta.unit else 'contacto' -%}
+{%- set waText = cta.whatsappMessage or t.cta.whatsappMessage -%}
+<section class="cta theme-dark">
+  <div class="container cta__inner">
+    <h2 class="cta__title">{{ (cta.title or t.cta.title) | safe }}</h2>
+    <p class="cta__text">{{ cta.text or t.cta.text }}</p>
+    <div class="cta__actions">
+      {{ ui.button(cta.primary or t.cta.primary, formLink | link(locale), 'primary', 'arrow-right') }}
+      {{ ui.button(t.cta.whatsapp, 'https://wa.me/' + site.contact.whatsapp + '?text=' + (waText | urlencode), 'ghost', 'whatsapp', 'target="_blank" rel="noopener"') }}
+    </div>
+    {% include "partials/contact-links.njk" %}
+  </div>
+</section>

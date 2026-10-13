@@ -1,0 +1,27 @@
+{#-
+  ============================================================================
+  LAYOUT BASE — esqueleto HTML común a TODAS las páginas
+  ----------------------------------------------------------------------------
+  <head> (SEO, idiomas, estilos) · header · contenido · footer · scripts
+  Variables que usa (calculadas en _data/eleventyComputed.js):
+    locale, t, seo, alternates, languageLinks, breadcrumbs, pageKey
+  ============================================================================
+-#}
+<!doctype html>
+<html lang="{{ locale }}">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ t.nav.skip }}</a>
+  {% include "partials/icons.njk" %}
+  {% include "partials/header.njk" %}
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

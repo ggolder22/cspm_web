@@ -1,0 +1,18 @@
+---
+#  PÁGINA 404 (Vercel la sirve automáticamente para rutas inexistentes)
+layout: layouts/base.njk
+permalink: /404.html
+eleventyExcludeFromCollections: true
+title: Página no encontrada
+---
+{% import "components/ui.njk" as ui %}
+<section class="hero hero--full">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="hero__badge"><span class="hero__dot" aria-hidden="true"></span>404</p>
+      <h1 class="hero__title">{{ t.notFound.title }}</h1>
+      <p class="hero__lead">{{ t.notFound.text }}</p>
+      <div class="hero__actions">{{ ui.button(t.notFound.back, 'home' | link(locale), 'primary', 'arrow-right') }}</div>
+    </div>
+  </div>
+</section>

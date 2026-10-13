@@ -1,0 +1,15 @@
+/* ============================================================================
+   SECCIÓN: PREGUNTAS FRECUENTES
+   ========================================================================== */
+.section--faq .container { max-width: calc(820px + 2 * var(--gutter)); }
+
+.faq { display: grid; gap: .8rem; }
+.faq__item { border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); }
+.faq__item summary {
+  display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 1.5rem;
+  font-weight: 600; color: var(--heading); cursor: pointer; list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: '+'; font-size: 1.3rem; line-height: 1; color: var(--accent); transition: transform .2s; }
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item p { padding: 0 1.5rem 1.3rem; font-size: .92rem; line-height: 1.75; color: var(--muted); }

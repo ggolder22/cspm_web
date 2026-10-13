@@ -1,0 +1,30 @@
+/* ============================================================================
+   FORMULARIOS
+   ========================================================================== */
+.form { display: grid; gap: 1.2rem; padding: 2.2rem; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+.field { display: grid; gap: .4rem; font-size: .85rem; font-weight: 500; color: var(--heading); }
+.field small { font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: .8rem 1rem; border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(74, 103, 65, .2); background: #fff;
+  font-size: .95rem; font-weight: 400; color: var(--c-text);
+  transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 130px; }
+.field :focus { outline: none; border-color: var(--c-oliva); box-shadow: 0 0 0 3px rgba(74, 103, 65, .15); }
+.field .is-invalid { border-color: #B54A3C; }
+
+.form__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.form__status { min-height: 1.4em; font-size: .9rem; }
+.form__status.is-success { color: var(--c-oliva); font-weight: 600; }
+.form__status.is-error { color: #B54A3C; }
+
+/* Campo anti-spam: fuera de pantalla */
+.form__trap { position: absolute; left: -9999px; }
+
+@media (max-width: 640px) {
+  .form { padding: 1.5rem; }
+  .form__row { grid-template-columns: 1fr; }
+}

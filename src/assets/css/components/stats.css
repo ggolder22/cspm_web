@@ -1,0 +1,20 @@
+/* ============================================================================
+   CIFRAS DESTACADAS (.stats)
+     --inline  fila horizontal (hero)
+     --grid    grilla 2×2 en cajas (columna lateral de split)
+   ========================================================================== */
+.stats { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; }
+.stats__value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.1; color: var(--accent); }
+.stats__unit { margin-left: .2rem; font-size: .9rem; font-weight: 400; color: var(--muted); }
+.stats__label { margin-top: .3rem; font-size: .82rem; line-height: 1.5; color: var(--muted); }
+
+.stats--inline { margin-top: 3rem; padding-top: 2.2rem; border-top: 1px solid rgba(74, 103, 65, .15); }
+.stats--inline .stats__value { color: var(--c-bosque); }
+
+.stats--grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.stats--grid .stats__item { padding: 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
+.stats--grid .stats__value { font-size: 2.3rem; }
+
+.stack + .stats--grid { margin-top: 1.5rem; }
+
+@media (max-width: 480px) { .stats--grid { grid-template-columns: 1fr; } }

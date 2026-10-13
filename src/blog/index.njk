@@ -1,0 +1,49 @@
+---
+#  ÍNDICE DEL BLOG  →  /blog/
+#  Lista los artículos de la colección `posts` (ver eleventy.config.js).
+layout: layouts/base.njk
+permalink: /blog/
+title: Blog CSPM — Energía solar y economía circular
+description: Artículos técnicos sobre energía solar, economía circular, segunda vida fotovoltaica, RAEE y huella de carbono en Argentina.
+---
+{% import "components/ui.njk" as ui %}
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      {% include "partials/breadcrumbs.njk" %}
+      <p class="hero__badge"><span class="hero__dot" aria-hidden="true"></span>{{ t.blog.tag }}</p>
+      <h1 class="hero__title">{{ t.blog.title | safe }}</h1>
+      <p class="hero__lead">{{ t.blog.intro }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section theme-sand">
+  <div class="container">
+    {% if collections.posts.length %}
+    <div class="grid grid--3">
+      {% for post in collections.posts %}
+      <article class="post-card card reveal" style="--i: {{ loop.index0 }}">
+        <div class="post-card__media">
+          {% if post.data.image %}<img src="{{ post.data.image }}" alt="" loading="lazy">
+          {% else %}<span aria-hidden="true">☀️</span>{% endif %}
+        </div>
+        <div class="card__body">
+          <p class="post-card__meta">
+            <time datetime="{{ post.date | dateISO }}">{{ post.date | dateLocal(locale) }}</time>
+            {% if post.data.tags %}<span class="pill">{{ post.data.tags[0] }}</span>{% endif %}
+          </p>
+          <h2 class="card__title">{{ post.data.title }}</h2>
+          <p class="card__text">{{ post.data.excerpt }}</p>
+          <a class="card__link" href="{{ post.url }}">{{ t.blog.readMore }}</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="section-intro">{{ t.blog.empty }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% include "partials/cta.njk" %}

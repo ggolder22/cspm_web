@@ -1,0 +1,40 @@
+/* ============================================================================
+   TEMAS DE COLOR DE SECCIÓN
+   Cada sección elige su tema desde los datos (theme: 'dark', etc.).
+   El tema solo define variables; los componentes las consumen. Así una
+   tarjeta se ve bien en cualquier fondo sin escribir CSS extra.
+
+     --bg       fondo de la sección
+     --heading  color de títulos
+     --text     texto común
+     --muted    texto secundario
+     --accent   color de énfasis (<em>, etiquetas, flechas)
+     --surface  fondo de tarjetas
+     --border   bordes suaves
+   ========================================================================== */
+:root, .theme-light, .theme-sand {   /* :root = tema por defecto */
+  --bg: var(--c-blanco);
+  --heading: var(--c-oscuro);
+  --text: var(--c-text);
+  --muted: var(--c-muted);
+  --accent: var(--c-oliva);
+  --surface: var(--c-blanco);
+  --surface-hover: #fff;
+  --border: rgba(74, 103, 65, .14);
+}
+.theme-sand { --bg: var(--c-beige); }
+
+.theme-dark, .theme-forest, .theme-moss {
+  --bg: var(--c-oscuro);
+  --heading: var(--c-beige);
+  --text: rgba(232, 228, 208, .85);
+  --muted: rgba(232, 228, 208, .62);
+  --accent: var(--c-salvia);
+  --surface: rgba(255, 255, 255, .05);
+  --surface-hover: rgba(255, 255, 255, .09);
+  --border: rgba(255, 255, 255, .09);
+}
+.theme-forest { --bg: linear-gradient(175deg, var(--c-bosque) 0%, #1E3318 100%); }
+.theme-moss   { --bg: linear-gradient(160deg, var(--c-oliva) 0%, var(--c-bosque) 100%); --accent: var(--c-mint); }
+
+[class*='theme-'] { background: var(--bg); color: var(--text); }

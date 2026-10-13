@@ -1,0 +1,13 @@
+/* ============================================================================
+   MARCA: logo + nombre (header y footer)
+   ========================================================================== */
+.brand {
+  --logo-stroke: var(--c-bosque);
+  --logo-leaf: var(--c-oliva);
+  display: inline-flex; align-items: center; gap: .65rem;
+  font-family: var(--font-mono); font-size: 1.2rem; font-weight: 500; letter-spacing: .04em;
+  color: var(--c-bosque); text-decoration: none;
+}
+.brand .logo { width: 34px; height: 34px; }
+
+.brand--light { --logo-stroke: var(--c-salvia); color: var(--c-beige); }

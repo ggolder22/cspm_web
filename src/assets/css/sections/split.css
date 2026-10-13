@@ -1,0 +1,10 @@
+/* ============================================================================
+   SECCIÓN: DOS COLUMNAS
+   ========================================================================== */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
+.split--single { grid-template-columns: minmax(0, 760px); }
+
+.split__main .section-header { margin-bottom: 0; }
+.split__p { margin-top: 1.2rem; font-size: 1.02rem; line-height: 1.85; color: var(--muted); }
+
+@media (max-width: 1024px) { .split { grid-template-columns: 1fr; } }

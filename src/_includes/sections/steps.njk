@@ -1,0 +1,24 @@
+{#-
+  SECCIÓN: PROCESO EN PASOS NUMERADOS (01, 02, 03…)
+  {
+    type: 'steps',
+    id, theme, tag, title, intro, align,
+    items: [{ icon, title, text }]
+  }
+  La numeración es automática según el orden de la lista.
+-#}
+{% import "components/ui.njk" as ui %}
+{% call ui.section(section, 'steps') %}
+<ol class="steps">
+  {% for item in section.items %}
+  <li class="steps__item reveal" style="--i: {{ loop.index0 }}">
+    <div class="steps__head">
+      <span class="steps__num">{{ loop.index | pad2 }}</span>
+      {% if item.icon %}<span class="steps__icon" aria-hidden="true">{{ item.icon }}</span>{% endif %}
+    </div>
+    <h3>{{ item.title }}</h3>
+    <p>{{ item.text | safe }}</p>
+  </li>
+  {% endfor %}
+</ol>
+{% endcall %}

@@ -1,0 +1,64 @@
+/* ============================================================================
+   TARJETA (.card) — una estructura, varias variantes
+     --default  ícono + título + texto
+     --product  cabecera con ícono grande y badge
+     --tier     categoría con valor destacado (A/B/C); tono según posición
+     --compact  versión apilada para columnas laterales (sección split)
+   Los colores vienen del tema de la sección (ver base/2-themes.css).
+   ========================================================================== */
+.card {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; scroll-margin-top: calc(var(--header-h) + 1.5rem);
+  transition: box-shadow .3s, background .3s, transform .3s, opacity .6s var(--ease);
+}
+.card:hover { background: var(--surface-hover); box-shadow: var(--shadow); }
+.card:has(.card__link):hover { transform: translateY(-5px); }
+
+.card__body { display: flex; flex-direction: column; flex: 1; padding: 2rem; }
+.card__icon { font-size: 1.8rem; margin-bottom: .9rem; }
+.card__title { font-size: 1.2rem; font-weight: 700; margin-bottom: .5rem; }
+.card__text { font-size: .9rem; line-height: 1.7; color: var(--muted); }
+
+/* Link que convierte toda la tarjeta en clickeable */
+.card__link {
+  margin-top: auto; padding-top: 1.4rem;
+  font-size: .88rem; font-weight: 600; color: var(--accent); text-decoration: none;
+}
+.card__link::after { content: ''; position: absolute; inset: 0; }
+
+/* Especificaciones técnicas (clave → valor) */
+.card__specs { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); display: grid; gap: .55rem; }
+.card__specs div { display: flex; justify-content: space-between; gap: 1rem; font-size: .8rem; }
+.card__specs dt { color: var(--muted); font-weight: 500; }
+.card__specs dd { color: var(--accent); font-family: var(--font-mono); font-weight: 500; text-align: right; }
+
+/* --product */
+.card--product .card__media {
+  position: relative; height: 180px; display: grid; place-items: center;
+  background: linear-gradient(135deg, #E8F0E6, #C8D8C4);
+}
+.card--product:nth-child(3n+2) .card__media { background: linear-gradient(135deg, #DDE8E0, #B8CDB8); }
+.card--product:nth-child(3n+3) .card__media { background: linear-gradient(135deg, #E5E8DC, #CCD4C0); }
+.card__media-icon { font-size: 4.5rem; filter: drop-shadow(0 8px 20px rgba(45, 74, 39, .2)); }
+.card__badge {
+  position: absolute; top: 1rem; right: 1rem;
+  padding: .3rem .85rem; border-radius: var(--radius-pill);
+  background: var(--c-bosque); color: var(--c-beige);
+  font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+}
+.card--product .card__title { font-size: 1.4rem; }
+
+/* --tier (categorías A/B/C): el tono baja con la posición */
+.card--tier { --tone: var(--c-bosque); background: linear-gradient(145deg, #E6F0E3, #D4E8CF); border-color: rgba(74, 103, 65, .2); }
+.card--tier:nth-child(2) { --tone: var(--c-oliva); background: linear-gradient(145deg, #EDF0E2, #E0E8D4); }
+.card--tier:nth-child(3) { --tone: var(--c-muted); background: linear-gradient(145deg, #F0EDE2, #E8E2CC); }
+.card--tier .pill { --pill-bg: var(--tone); }
+.card--tier:nth-child(3) .pill { --pill-bg: var(--c-arena); --pill-fg: var(--c-oscuro); }
+.card--tier .card__value { font-family: var(--font-mono); font-size: 2.4rem; line-height: 1; color: var(--tone); margin-bottom: .8rem; }
+.card--tier .card__text { color: var(--c-text); }
+
+/* --compact */
+.card--compact .card__body { padding: 1.5rem 1.7rem; }
+.card--compact .card__icon { font-size: 1.5rem; margin-bottom: .6rem; }
+.card--compact .card__title { font-size: 1.05rem; }

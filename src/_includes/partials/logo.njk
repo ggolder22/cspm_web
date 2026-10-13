@@ -1,0 +1,12 @@
+{#-
+  LOGO CSPM (isotipo). Una sola definición para header y footer.
+  Los colores se controlan desde CSS con las variables
+  --logo-stroke y --logo-leaf (ver components/brand.css).
+-#}
+<svg class="logo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+  <path d="M20 6C12.3 6 6 12.3 6 20s6.3 14 14 14 14-6.3 14-14" stroke="var(--logo-stroke)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M34 20l-3-5-3 5" stroke="var(--logo-stroke)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 20q4-8 10-4" stroke="var(--logo-leaf)" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="23" cy="24" rx="5" ry="6" fill="var(--logo-leaf)" transform="rotate(-20 23 24)" opacity=".85"/>
+  <path d="M23 28q-2-4 0-8" stroke="var(--c-beige)" stroke-width="1" stroke-linecap="round"/>
+</svg>

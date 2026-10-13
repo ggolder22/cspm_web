@@ -1,0 +1,44 @@
+/* ============================================================================
+   TIPOGRAFÍA COMÚN
+   Los títulos usan <em> para el énfasis de marca (cursiva + color de acento).
+   ========================================================================== */
+h1, h2, h3, h4 { font-family: var(--font-display); color: var(--heading, var(--c-oscuro)); line-height: 1.2; }
+h1 em, h2 em, h3 em { font-style: italic; color: var(--accent, var(--c-oliva)); }
+strong { color: var(--heading); font-weight: 600; }
+
+/* Encabezado de sección */
+.section-header { max-width: 640px; margin-bottom: 3.5rem; }
+.section-header--center { margin-inline: auto; text-align: center; }
+
+.eyebrow {
+  display: inline-flex; gap: .5rem;
+  font-family: var(--font-mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--c-salvia);
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before { content: '//'; opacity: .5; }
+
+.section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; }
+.section-intro { margin-top: 1rem; font-size: 1.05rem; line-height: 1.8; color: var(--muted); }
+
+/* Lista con flechas */
+.arrow-list { display: flex; flex-direction: column; gap: .45rem; margin-top: 1rem; }
+.arrow-list li { position: relative; padding-left: 1.2rem; font-size: .85rem; color: var(--muted); }
+.arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: .78rem; }
+
+/* Etiqueta tipo "pastilla" */
+.pill {
+  display: inline-block; width: fit-content;
+  font-family: var(--font-mono); font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .85rem; border-radius: var(--radius-pill);
+  background: var(--pill-bg, var(--c-bosque)); color: var(--pill-fg, var(--c-beige));
+  margin-bottom: 1rem;
+}
+
+/* Link de texto con flecha */
+.text-link {
+  display: inline-flex; align-items: center; gap: .5rem; margin-top: 2rem;
+  font-weight: 600; font-size: .92rem; color: var(--accent); text-decoration: none;
+  transition: gap .2s;
+}
+.text-link:hover { gap: .8rem; }

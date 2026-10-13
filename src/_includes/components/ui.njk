@@ -1,0 +1,107 @@
+{#-
+  ============================================================================
+  COMPONENTES DE INTERFAZ (macros de Nunjucks)
+  ----------------------------------------------------------------------------
+  Uso:   {% import "components/ui.njk" as ui %}
+         {{ ui.button('Contactar', '/contacto/', 'primary', 'arrow-right') }}
+
+  Importante: las macros NO ven las variables de la página (locale, t…).
+  Todo lo que necesitan se pasa por parámetro (por ejemplo, los links
+  ya resueltos con el filtro `link`).
+  ============================================================================
+-#}
+
+{#- Ícono SVG del sprite (ver partials/icons.njk) -#}
+{% macro icon(name, size = 18) -%}
+<svg class="icon" width="{{ size }}" height="{{ size }}" aria-hidden="true" focusable="false"><use href="#i-{{ name }}"/></svg>
+{%- endmacro %}
+
+
+{#- Botón / link con estilo de botón.
+    variant: primary | secondary | ghost (para fondos oscuros) | whatsapp -#}
+{% macro button(label, href, variant = 'primary', iconName = null, attrs = '') -%}
+<a class="btn btn--{{ variant }}" href="{{ href }}" {{ attrs | safe }}>
+  {%- if iconName %}{{ icon(iconName, 16) }}{% endif -%}
+  <span>{{ label | safe }}</span>
+</a>
+{%- endmacro %}
+
+
+{#- Encabezado de sección: etiqueta + título + bajada.
+    s: { tag, title, intro, align: 'center' | 'left' } -#}
+{% macro sectionHeader(s) -%}
+{%- if s.tag or s.title or s.intro -%}
+<header class="section-header{% if s.align == 'center' %} section-header--center{% endif %}">
+  {% if s.tag %}<p class="eyebrow reveal">{{ s.tag }}</p>{% endif %}
+  {% if s.title %}<h2 class="section-title reveal">{{ s.title | safe }}</h2>{% endif %}
+  {% if s.intro %}<p class="section-intro reveal">{{ s.intro | safe }}</p>{% endif %}
+</header>
+{%- endif -%}
+{%- endmacro %}
+
+
+{#- Contenedor estándar de sección. Se usa con {% call %}:
+      {% call ui.section(section, 'steps') %} …contenido… {% endcall %}
+    - Aplica el tema de color (light | sand | dark | forest | moss)
+    - Agrega el encabezado salvo que withHeader = false -#}
+{% macro section(s, modifier = '', withHeader = true) -%}
+<section class="section theme-{{ s.theme or 'light' }}{% if modifier %} section--{{ modifier }}{% endif %}"{% if s.id %} id="{{ s.id }}"{% endif %}>
+  <div class="container">
+    {% if withHeader %}{{ sectionHeader(s) }}{% endif %}
+    {{ caller() }}
+  </div>
+</section>
+{%- endmacro %}
+
+
+{#- Lista con flechas -#}
+{% macro arrowList(items) -%}
+<ul class="arrow-list">
+  {% for item in items %}<li>{{ item | safe }}</li>{% endfor %}
+</ul>
+{%- endmacro %}
+
+
+{#- Grilla de cifras destacadas. items: [{ value, unit, label }] -#}
+{% macro stats(items, modifier = '') -%}
+<dl class="stats{% if modifier %} stats--{{ modifier }}{% endif %}">
+  {% for item in items %}
+  <div class="stats__item reveal" style="--i: {{ loop.index0 }}">
+    <dt class="stats__value">{{ item.value | safe }}{% if item.unit %}<span class="stats__unit">{{ item.unit }}</span>{% endif %}</dt>
+    <dd class="stats__label">{{ item.label | safe }}</dd>
+  </div>
+  {% endfor %}
+</dl>
+{%- endmacro %}
+
+
+{#- Tarjeta genérica. Una sola estructura, distintas variantes por CSS:
+      default  ícono + título + texto (+ lista, specs, link)
+      product  cabecera grande con ícono y badge (servicios)
+      tier     etiqueta + valor grande (categorías A/B/C)
+    item: { id, icon, badge, label, value, title, text, list[], specs[[k, v]], linkLabel }
+    href: link ya resuelto (si existe, toda la tarjeta es clickeable) -#}
+{% macro card(item, href = '', variant = 'default', index = 0, moreLabel = '') -%}
+<article class="card card--{{ variant }} reveal" style="--i: {{ index }}"{% if item.id %} id="{{ item.id }}"{% endif %}>
+  {% if variant == 'product' %}
+  <div class="card__media">
+    <span class="card__media-icon" aria-hidden="true">{{ item.icon }}</span>
+    {% if item.badge %}<span class="card__badge">{{ item.badge }}</span>{% endif %}
+  </div>
+  {% endif %}
+  <div class="card__body">
+    {% if item.icon and variant != 'product' %}<span class="card__icon" aria-hidden="true">{{ item.icon }}</span>{% endif %}
+    {% if item.label %}<span class="pill">{{ item.label }}</span>{% endif %}
+    {% if item.value %}<p class="card__value">{{ item.value | safe }}</p>{% endif %}
+    <h3 class="card__title">{{ item.title | safe }}</h3>
+    {% if item.text %}<p class="card__text">{{ item.text | safe }}</p>{% endif %}
+    {% if item.list %}{{ arrowList(item.list) }}{% endif %}
+    {% if item.specs %}
+    <dl class="card__specs">
+      {% for spec in item.specs %}<div><dt>{{ spec[0] }}</dt><dd>{{ spec[1] | safe }}</dd></div>{% endfor %}
+    </dl>
+    {% endif %}
+    {% if href %}<a class="card__link" href="{{ href }}">{{ item.linkLabel or moreLabel }} →</a>{% endif %}
+  </div>
+</article>
+{%- endmacro %}

@@ -1,0 +1,18 @@
+{#-
+  SECCIÓN: GRILLA DE TARJETAS
+  {
+    type: 'cards',
+    id, theme, tag, title, intro, align,      ← comunes a todas las secciones
+    columns: 2 | 3 | 4                         (por defecto 3)
+    variant: 'default' | 'product' | 'tier'    (ver components/ui.njk → card)
+    items: [{ id, icon, badge, label, value, title, text, list[], specs[[k,v]], link, linkLabel }]
+  }
+-#}
+{% import "components/ui.njk" as ui %}
+{% call ui.section(section, 'cards') %}
+<div class="grid grid--{{ section.columns or 3 }}">
+  {% for item in section.items %}
+    {{ ui.card(item, item.link | link(locale), section.variant or 'default', loop.index0, t.nav.more) }}
+  {% endfor %}
+</div>
+{% endcall %}

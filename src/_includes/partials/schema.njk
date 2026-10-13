@@ -1,0 +1,32 @@
+{#-
+  Datos estructurados (schema.org) para Google.
+  - Todas las páginas: la organización.
+  - Artículos del blog (schemaType: 'Article'): datos del artículo.
+-#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": {{ site.name | dump | safe }},
+  "url": {{ site.url | dump | safe }},
+  "email": {{ site.contact.email | dump | safe }},
+  "telephone": {{ site.contact.phoneHref | dump | safe }},
+  "founder": { "@type": "Person", "name": {{ site.founder | dump | safe }} },
+  "sameAs": [{% for s in site.social %}{{ s.url | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}]
+}
+</script>
+{% if schemaType == 'Article' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | dump | safe }},
+  "description": {{ excerpt | dump | safe }},
+  "datePublished": "{{ date | dateISO }}",
+  "author": { "@type": "Person", "name": {{ site.founder | dump | safe }} },
+  "publisher": { "@type": "Organization", "name": {{ site.name | dump | safe }}, "url": {{ site.url | dump | safe }} }
+  {%- if image %},
+  "image": {{ image | absoluteUrl | dump | safe }}{% endif %}
+}
+</script>
+{% endif %}

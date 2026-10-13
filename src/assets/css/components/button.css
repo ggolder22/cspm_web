@@ -1,0 +1,27 @@
+/* ============================================================================
+   BOTONES  ·  .btn + variante
+     --primary    relleno verde (acción principal)
+     --secondary  contorno (fondos claros)
+     --ghost      contorno claro (fondos oscuros)
+     --whatsapp   verde WhatsApp
+   ========================================================================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .85rem 1.8rem; border-radius: var(--radius-pill); border: 1.5px solid transparent;
+  font-size: .95rem; font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: background .25s, border-color .25s, transform .2s, box-shadow .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:disabled { opacity: .6; cursor: wait; transform: none; }
+
+.btn--primary { background: var(--c-bosque); color: var(--c-beige); box-shadow: var(--shadow-sm); }
+.btn--primary:hover { background: var(--c-oliva); }
+
+.btn--secondary { background: transparent; color: var(--c-bosque); border-color: rgba(45, 74, 39, .3); }
+.btn--secondary:hover { border-color: var(--c-oliva); background: rgba(74, 103, 65, .06); }
+
+.btn--ghost { background: rgba(255, 255, 255, .06); color: var(--c-beige); border-color: rgba(232, 228, 208, .25); }
+.btn--ghost:hover { border-color: var(--c-salvia); }
+
+.btn--whatsapp { background: var(--c-whatsapp); color: #0B2E13; }
+.btn--whatsapp:hover { background: #1EBE5A; }

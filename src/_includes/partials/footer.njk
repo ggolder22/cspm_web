@@ -1,0 +1,32 @@
+{#-
+  FOOTER
+  Columnas generadas desde navigation.footer; contacto desde site.contact.
+-#}
+{% import "components/ui.njk" as ui %}
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+
+    <div class="site-footer__brand">
+      <a class="brand brand--light" href="{{ 'home' | link(locale) }}">
+        {% include "partials/logo.njk" %}<span class="brand__name">{{ site.name }}</span>
+      </a>
+      <p>{{ t.footer.tagline }}</p>
+    </div>
+
+    {% for column in navigation.footer %}
+    <nav class="site-footer__col" aria-label="{{ t.footer[column.title] }}">
+      <h2>{{ t.footer[column.title] }}</h2>
+      <ul>
+        {% for key in column.items %}<li><a href="{{ key | link(locale) }}">{{ t.labels[key] }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+    {% endfor %}
+
+    <div class="site-footer__col">
+      <h2>{{ t.footer.contact }}</h2>
+      {% include "partials/contact-links.njk" %}
+    </div>
+
+    <p class="site-footer__legal">© {{ site.year }} {{ site.name }} · {{ site.founder }} · {{ t.footer.rights }}</p>
+  </div>
+</footer>

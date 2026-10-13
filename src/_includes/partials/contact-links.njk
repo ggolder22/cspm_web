@@ -1,0 +1,13 @@
+{#-
+  Lista de canales de contacto (email, teléfono, WhatsApp, redes).
+  Se reutiliza en el footer, la banda CTA y la página de contacto.
+-#}
+{% import "components/ui.njk" as ui %}
+<ul class="contact-links">
+  <li><a href="mailto:{{ site.contact.email }}">{{ ui.icon('mail', 15) }}{{ site.contact.email }}</a></li>
+  <li><a href="tel:{{ site.contact.phoneHref }}">{{ ui.icon('phone', 15) }}{{ site.contact.phone }}</a></li>
+  <li><a href="https://wa.me/{{ site.contact.whatsapp }}" target="_blank" rel="noopener">{{ ui.icon('whatsapp', 15) }}WhatsApp</a></li>
+  {% for s in site.social %}
+  <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ ui.icon(s.icon, 15) }}{{ s.handle }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,10 @@
+/* ============================================================================
+   BANDA DE CONTACTO FINAL
+   ========================================================================== */
+.cta { padding-block: clamp(5rem, 10vw, 8rem); text-align: center; }
+.cta__inner { display: grid; justify-items: center; }
+.cta__title { max-width: 720px; font-size: clamp(2.1rem, 4vw, 3.4rem); font-weight: 900; }
+.cta__text { max-width: 520px; margin: 1.4rem 0 2.6rem; font-size: 1.05rem; line-height: 1.75; color: var(--muted); }
+.cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+.cta .contact-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; margin-top: 2.5rem; font-size: .86rem; color: var(--muted); }

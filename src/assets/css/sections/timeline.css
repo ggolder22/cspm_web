@@ -1,0 +1,30 @@
+/* ============================================================================
+   SECCIÓN: LÍNEA DE TIEMPO
+   Estados opcionales: .is-done · .is-current (resaltado) · .is-next (atenuado)
+   ========================================================================== */
+.section--timeline .container { max-width: calc(860px + 2 * var(--gutter)); }
+
+.timeline { position: relative; display: grid; gap: 3rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 22px; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--c-salvia) 10%, var(--c-oliva) 90%, transparent);
+}
+
+.timeline__item { position: relative; display: grid; grid-template-columns: 44px 1fr; gap: 1.8rem; }
+.timeline__dot {
+  z-index: 1; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--c-oliva), var(--c-salvia));
+  box-shadow: 0 0 0 6px rgba(122, 145, 113, .12);
+}
+.timeline__date {
+  margin-bottom: .4rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--accent);
+}
+.timeline__item h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+.timeline__item p:not(.timeline__date) { font-size: .92rem; line-height: 1.7; color: var(--muted); }
+
+.timeline__item.is-current .timeline__dot { box-shadow: 0 0 0 6px rgba(181, 212, 168, .35); animation: pulse-ring 2.4s infinite; }
+.timeline__item.is-next { opacity: .55; }
+.timeline__item.is-next .timeline__dot { background: transparent; border: 1.5px dashed var(--c-salvia); }
+
+@keyframes pulse-ring { 50% { box-shadow: 0 0 0 12px rgba(181, 212, 168, .08); } }

@@ -1,0 +1,37 @@
+{#-
+  SECCIÓN: FLUJO DE DOS LADOS (origen → proceso → destino)
+  {
+    type: 'flow',
+    id, theme, tag, title, intro, align,
+    sides: [ { label, title, text, list[] }, { … } ],   exactamente 2
+    hub:   { icon, label },                             bloque central
+    note:  { icon, text }                               aclaración inferior (opcional)
+  }
+-#}
+{% import "components/ui.njk" as ui %}
+{% call ui.section(section, 'flow') %}
+<div class="flow">
+  {% for side in section.sides %}
+  <article class="flow__side reveal" style="--i: {{ loop.index0 * 2 }}">
+    <span class="pill">{{ side.label }}</span>
+    <h3>{{ side.title }}</h3>
+    <p>{{ side.text }}</p>
+    {{ ui.arrowList(side.list) }}
+  </article>
+  {% if loop.first %}
+  <div class="flow__hub reveal" style="--i: 1" aria-hidden="true">
+    <span class="flow__arrow">→</span>
+    <div class="flow__badge"><span>{{ section.hub.icon }}</span><small>{{ section.hub.label }}</small></div>
+    <span class="flow__arrow">→</span>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+{% if section.note %}
+<aside class="note reveal">
+  <span class="note__icon" aria-hidden="true">{{ section.note.icon }}</span>
+  <p>{{ section.note.text | safe }}</p>
+</aside>
+{% endif %}
+{% endcall %}

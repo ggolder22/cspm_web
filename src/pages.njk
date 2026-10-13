@@ -1,0 +1,15 @@
+---
+#  ===========================================================================
+#  GENERADOR DE PÁGINAS INSTITUCIONALES
+#  ---------------------------------------------------------------------------
+#  Esta única plantilla produce TODAS las páginas de src/_data/pages/*.js
+#  en todos sus idiomas (ver src/_data/pageList.js).
+#  El diseño de cada página lo define layouts/page.njk.
+#  ===========================================================================
+pagination:
+  data: pageList
+  size: 1
+  alias: entry
+permalink: "{{ entry.url }}"
+layout: layouts/page.njk
+---

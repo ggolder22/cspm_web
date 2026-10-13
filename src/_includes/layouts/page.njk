@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+{#-
+  ============================================================================
+  LAYOUT DE PÁGINA INSTITUCIONAL
+  ----------------------------------------------------------------------------
+  Arma la página completa a partir de `pageContent` (src/_data/pages/*.js):
+
+    hero       → partials/hero.njk
+    sections[] → cada sección se dibuja con sections/<type>.njk
+    cta        → banda de contacto final (cta: false para ocultarla)
+    draft      → true muestra un aviso de "Borrador"
+
+  Para crear un nuevo tipo de sección: agregar sections/<nuevo>.njk
+  y usar  { type: '<nuevo>', … }  en los datos. No hay que tocar este archivo.
+  ============================================================================
+-#}
+{% if pageContent.draft %}{% include "partials/draft-banner.njk" %}{% endif %}
+
+{% include "partials/hero.njk" %}
+
+{% for section in pageContent.sections %}
+  {% include "sections/" + section.type + ".njk" %}
+{% endfor %}
+
+{% if pageContent.cta !== false %}{% include "partials/cta.njk" %}{% endif %}

@@ -1,0 +1,13 @@
+---
+#  ROBOTS.TXT — bloquea buscadores mientras el sitio no sea producción
+#  (ver SITE_ENV en src/_data/site.js)
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+User-agent: *
+{% if site.isProduction -%}
+Allow: /
+Sitemap: {{ '/sitemap.xml' | absoluteUrl }}
+{%- else -%}
+Disallow: /
+{%- endif %}

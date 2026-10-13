@@ -1,0 +1,38 @@
+{#-
+  SECCIÓN: DOS COLUMNAS (texto + complemento)
+  {
+    type: 'split',
+    id, theme, tag, title, intro,
+    paragraphs: ['…', '…'],             columna izquierda (admite <strong>)
+    link:  { label, link },             link destacado bajo el texto (opcional)
+    items: [{ icon, label, title, text }]  tarjetas apiladas a la derecha (opcional)
+    stats: [{ value, unit, label }]     cifras a la derecha o debajo (opcional)
+  }
+  Sin items ni stats se muestra como una sola columna de texto.
+-#}
+{% import "components/ui.njk" as ui %}
+{%- set hasAside = section.items or section.stats -%}
+{% call ui.section(section, 'split', false) %}
+<div class="split{% if not hasAside %} split--single{% endif %}">
+
+  <div class="split__main">
+    {{ ui.sectionHeader(section) }}
+    {% for p in section.paragraphs %}<p class="split__p reveal">{{ p | safe }}</p>{% endfor %}
+    {% if section.link %}
+      <a class="text-link reveal" href="{{ section.link.link | link(locale) }}">{{ ui.icon('arrow-right', 15) }}{{ section.link.label }}</a>
+    {% endif %}
+  </div>
+
+  {% if hasAside %}
+  <div class="split__aside">
+    {% if section.items %}
+    <div class="stack">
+      {% for item in section.items %}{{ ui.card(item, item.link | link(locale), 'compact', loop.index0, t.nav.more) }}{% endfor %}
+    </div>
+    {% endif %}
+    {% if section.stats %}{{ ui.stats(section.stats, 'grid') }}{% endif %}
+  </div>
+  {% endif %}
+
+</div>
+{% endcall %}

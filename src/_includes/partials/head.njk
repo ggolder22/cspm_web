@@ -1,0 +1,39 @@
+{#-
+  <head> común: meta SEO, idiomas alternativos (hreflang), Open Graph,
+  datos estructurados, fuentes y estilos.
+  Mientras site.isProduction sea false se agrega noindex (sitio de prueba).
+-#}
+{%- set pageTitle = seo.title if pageKey == 'home' else seo.title + ' — ' + site.name -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ seo.description }}">
+<link rel="canonical" href="{{ page.url | absoluteUrl }}">
+{% if not site.isProduction %}<meta name="robots" content="noindex, nofollow">{% endif %}
+
+{#- Versiones en otros idiomas -#}
+{% for alt in alternates %}
+<link rel="alternate" hreflang="{{ alt.locale }}" href="{{ alt.url | absoluteUrl }}">
+{% endfor %}
+{% if alternates.length > 1 %}<link rel="alternate" hreflang="x-default" href="{{ alternates[0].url | absoluteUrl }}">{% endif %}
+
+{#- Redes sociales -#}
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:url" content="{{ page.url | absoluteUrl }}">
+<meta property="og:type" content="{{ 'article' if schemaType == 'Article' else 'website' }}">
+<meta property="og:locale" content="{{ 'es_AR' if locale == 'es' else 'en_US' }}">
+{% if seo.image %}<meta property="og:image" content="{{ seo.image | absoluteUrl }}">{% endif %}
+
+{% include "partials/schema.njk" %}
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+{#- Marca que hay JS: activa las animaciones de aparición sin ocultar
+    contenido a quien navega sin JavaScript -#}
+<script>document.documentElement.classList.add('js')</script>

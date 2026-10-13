@@ -1,0 +1,25 @@
+---
+#  SITEMAP  →  /sitemap.xml
+#  Incluye todas las páginas institucionales (con sus versiones en otros
+#  idiomas vía hreflang) y los artículos del blog. Se genera solo.
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for entry in pageList %}
+  <url>
+    <loc>{{ entry.url | absoluteUrl }}</loc>
+    {%- for loc, url in routes[entry.key] %}{% if loc != 'parent' and pages[entry.key][loc] %}
+    <xhtml:link rel="alternate" hreflang="{{ loc }}" href="{{ url | absoluteUrl }}"/>
+    {%- endif %}{% endfor %}
+  </url>
+{%- endfor %}
+  <url><loc>{{ '/blog/' | absoluteUrl }}</loc></url>
+{%- for post in collections.posts %}
+  <url>
+    <loc>{{ post.url | absoluteUrl }}</loc>
+    <lastmod>{{ post.date | dateISO }}</lastmod>
+  </url>
+{%- endfor %}
+</urlset>

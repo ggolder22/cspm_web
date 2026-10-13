@@ -1,0 +1,80 @@
+/* ============================================================================
+   HERO
+     .hero        páginas internas (compacto, con breadcrumbs)
+     .hero--full  inicio (pantalla completa + órbita animada)
+   ========================================================================== */
+.hero {
+  position: relative; overflow: hidden;
+  padding-block: calc(var(--header-h) + 4rem) 4.5rem;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 40%, rgba(122, 145, 113, .14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 90%, rgba(196, 185, 154, .22) 0%, transparent 50%);
+}
+.hero--full { min-height: min(100vh, 920px); display: flex; align-items: center; }
+
+.hero__inner { position: relative; }
+.hero__inner--split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+
+.hero__text { max-width: 720px; animation: fade-up .8s var(--ease) both; }
+
+.hero__badge {
+  display: inline-flex; align-items: center; gap: .5rem; margin-bottom: 1.6rem;
+  padding: .4rem 1rem; border-radius: var(--radius-pill);
+  background: rgba(74, 103, 65, .1); border: 1px solid rgba(74, 103, 65, .2);
+  color: var(--c-oliva); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+}
+.hero__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-salvia); animation: pulse 2s infinite; }
+
+.hero__title { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.1; }
+.hero:not(.hero--full) .hero__title { font-size: clamp(2.2rem, 4.2vw, 3.4rem); }
+.hero__lead { margin-top: 1.4rem; max-width: 560px; font-size: 1.1rem; line-height: 1.75; color: var(--c-muted); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.2rem; }
+
+/* Breadcrumbs */
+.breadcrumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; font-size: .8rem; color: var(--c-muted); }
+.breadcrumbs li + li::before { content: '/'; margin-right: .4rem; opacity: .5; }
+.breadcrumbs a { text-decoration: none; }
+.breadcrumbs a:hover { color: var(--c-bosque); }
+
+/* Órbita animada (inicio). Los nodos se ubican en círculo usando --i / --n */
+.hero__visual { display: flex; justify-content: center; animation: fade-in 1s .3s var(--ease) both; }
+.orbit { --size: min(440px, 80vw); position: relative; width: var(--size); height: var(--size); }
+.orbit__ring { position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(74, 103, 65, .22); animation: spin 28s linear infinite; }
+.orbit__ring--inner { inset: 14%; border-color: rgba(122, 145, 113, .28); animation-duration: 20s; animation-direction: reverse; }
+.orbit__center {
+  --logo-stroke: var(--c-beige); --logo-leaf: var(--c-mint);
+  position: absolute; inset: 28%; border-radius: 50%;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--c-bosque), var(--c-oliva));
+  box-shadow: 0 20px 60px rgba(45, 74, 39, .35);
+}
+.orbit__center .logo { width: 48%; height: 48%; }
+
+.orbit__node {
+  --angle: calc(360deg / var(--n) * var(--i) - 90deg);
+  position: absolute; top: 50%; left: 50%;
+  width: 68px; height: 68px; margin: -34px;
+  transform: rotate(var(--angle)) translate(calc(var(--size) / 2)) rotate(calc(var(--angle) * -1));
+  display: grid; place-items: center;
+  border-radius: 50%; background: var(--c-beige); border: 2px solid rgba(74, 103, 65, .2);
+  box-shadow: 0 8px 25px rgba(45, 74, 39, .15); font-size: 1.6rem;
+}
+.orbit__node span { animation: float 4s ease-in-out infinite; animation-delay: calc(var(--i) * .6s); }
+.orbit__node small {
+  position: absolute; top: calc(100% + .35rem);
+  font-size: .7rem; font-weight: 600; color: var(--c-bosque); white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .hero__inner--split { grid-template-columns: 1fr; }
+  .hero__visual { display: none; }
+}
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes pulse   { 50% { opacity: .5; transform: scale(1.5); } }
+@keyframes float   { 50% { transform: translateY(-5px); } }
